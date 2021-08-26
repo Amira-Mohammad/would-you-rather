@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { TabContent, TabPane, Nav, NavItem, NavLink, Card, Button, CardTitle, CardText, Row, Col } from 'reactstrap';
-import { Link } from "react-router-dom";
+import { Card, CardTitle, CardText } from 'reactstrap';
 import { connect } from 'react-redux';
 import { handleAddQuestion } from '../../Actions/Questions'
 import Navbar from '../navBar/NavBar';
@@ -30,8 +29,6 @@ class NewQuestion extends Component {
         const { FirstOption, SecondOption } = this.state
 
         dispatch(handleAddQuestion(FirstOption, SecondOption, 'tylermcginnis'))
-        console.log('FirstOption: ', FirstOption)
-        console.log('FirstOption: ', SecondOption)
         this.setState(() => ({
             FirstOption: '',
             SecondOption: ''
@@ -39,8 +36,6 @@ class NewQuestion extends Component {
     }
 
     render() {
-        console.log('questions from new q comp', this.props.questions);
-
         return (
             <div className="container">
                 <Navbar />

@@ -1,9 +1,8 @@
 import React from 'react';
-import { TabContent, TabPane, Nav, NavItem, NavLink, Card, Button, CardTitle, CardText, Row, Col, Navbar } from 'reactstrap';
-import NavBar from '../../navBar/NavBar'
+import { Card, CardTitle, CardText } from 'reactstrap';
 import { Link } from "react-router-dom";
 const AnsweredQuestions = (props) => {
-    console.log('props FROM answered Qs', props.Q);
+
 
     return (
         <div>
@@ -22,7 +21,8 @@ const AnsweredQuestions = (props) => {
                             </div>
                             <Link className="btn px-5"
                                 to={{ pathname: "/questionPoll", state: { Q_forPoll: props.Q } }}
-                                to="/questionPoll">
+                            //to="/questionPoll"
+                            >
                                 View Poll
                             </Link>
                         </div>

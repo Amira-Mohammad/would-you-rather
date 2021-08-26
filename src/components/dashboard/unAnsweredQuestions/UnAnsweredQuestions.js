@@ -1,9 +1,9 @@
 import React from 'react';
-import { TabContent, TabPane, Nav, NavItem, NavLink, Card, Button, CardTitle, CardText, Row, Col } from 'reactstrap';
+import { Card, CardTitle, CardText } from 'reactstrap';
 import { Link } from "react-router-dom";
 import './UnAnsweredQuestions.css'
 const UnAnsweredQuestions = (props) => {
-    console.log("qqqqqqqqqqqqqqqqqq", props)
+
     return (
         <div>
             <Card className="p-0 m-2" body>

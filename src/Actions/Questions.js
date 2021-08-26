@@ -21,9 +21,7 @@ function addQuestion(question) {
 
 export function handleAddQuestion(optionOne, optionTwo, author) {
     // debugger;
-    console.log('optionOne', optionOne);
-    console.log('option2', optionTwo);
-    console.log('authorrrrrrrrrrrrrrrr', author);
+
 
     return (dispatch, getState) => {
         return saveQuestion(
@@ -39,7 +37,7 @@ export function handleAddQuestion(optionOne, optionTwo, author) {
             // }
         ).then((question) => {
             dispatch(addQuestion(question))
-            console.log('question from action ', question);
+
 
         })
 

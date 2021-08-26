@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { TabContent, TabPane, Nav, NavItem, NavLink, Card, Button, CardTitle, CardText, Row, Col } from 'reactstrap';
+import { TabContent, TabPane, Nav, NavItem, NavLink, Row, Col } from 'reactstrap';
 import classnames from 'classnames';
 import UnAnsweredQuestions from './unAnsweredQuestions/UnAnsweredQuestions';
 import AnsweredQuestions from './answeredQuestions/AnsweredQuestions';
@@ -16,15 +16,11 @@ const Dashboard = (props) => {
         props.dispatch(handleInitialData())
         if (!props.question) {
 
-            console.log('trueeeeeeee', props.questions);
-
 
             setQuestion(props.questions)
 
         }
-        console.log('typeof question', typeof question);
-        console.log('questionssssssssssssssss', question);
-        console.log('propsssssssss from dashhhhhhhhhhboard', props);
+
 
     }, []);
 
@@ -38,7 +34,7 @@ const Dashboard = (props) => {
 
     return (
         <>
-            {console.log("dddddddd", props.questions)}
+
             <NavBar
             // loginUser={props.location.state.loginUser} 
             />
@@ -69,24 +65,24 @@ const Dashboard = (props) => {
                         <Row className="mt-4">
                             <Col sm="12">
 
-                                {Object.keys(props.questions).map((Q) => {
-                                    console.log('Q from looping', Q);
+                                {Object.keys(props.questions).sort((a, b) => props.questions[b].timestamp - props.questions[a].timestamp)
+                                    .map((Q) => {
+                                        return (<UnAnsweredQuestions usersData={props.users} Q={props.questions[Q]} />
 
-                                    return (<UnAnsweredQuestions usersData={props.users} Q={props.questions[Q]} />
-
-                                    )
-                                })}
+                                        )
+                                    })}
                             </Col>
                         </Row>
                     </TabPane>
                     <TabPane tabId="2">
                         <Row className="mt-4">
                             <Col sm="12">
-                                {Object.keys(question).map((Q) => {
-                                    return (<AnsweredQuestions Q={question[Q]} />
+                                {Object.keys(props.questions).map((Q) => {
+                                    return (<AnsweredQuestions Q={props.questions[Q]} />
 
                                     )
-                                })}
+                                })
+                                }
 
                             </Col>
                         </Row>
@@ -98,10 +94,12 @@ const Dashboard = (props) => {
 };
 
 function mapStateToProps({ questions, users }) {
-    console.log('questions from maappping', questions);
+    console.log('x', questions);
 
     return {
-        questions,
+        questions: questions
+        //.sort((a, b) => questions[b].timestamp - questions[a].timestamp)
+        ,
         users
         //.sort((a, b) => tweets[b].timestamp - tweets[a].timestamp)
     }

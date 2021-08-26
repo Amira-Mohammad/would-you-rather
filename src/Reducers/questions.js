@@ -10,7 +10,6 @@ export default function questions(state = {}, action) {
             }
 
         case ADD_QUESTION:
-            // console.log('questions from reducer', action.questions);
             // debugger;
             return {
                 ...state,

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { TabContent, TabPane, Nav, NavItem, NavLink, Card, Button, CardTitle, CardText, Row, Col } from 'reactstrap';
+import { Card, CardText } from 'reactstrap';
 import NavBar from '../navBar/NavBar';
 import { connect } from 'react-redux';
 import { handleInitialData } from '../../Actions/index';
@@ -23,8 +23,7 @@ class LeaderBoard extends Component {
             this.setState({
                 users: this.props.users
             })
-            console.log("prevProps users", prevProps.users);
-            console.log("props users from componentDidUpdate", this.props.users);
+
         }
 
 
@@ -32,14 +31,12 @@ class LeaderBoard extends Component {
             this.setState({
                 questions: this.props.questions
             })
-            console.log("prevProps qqq", prevProps.questions);
-            console.log("props qqq from componentDidUpdate", this.props.questions);
+
         }
 
     }
 
     render() {
-        console.log('this.props  from leaderBoard', this.props);
 
         return (
             <div>
@@ -102,7 +99,7 @@ class LeaderBoard extends Component {
 }
 
 function mapStateToProps({ users, questions }) {
-    console.log('from maappping', users);
+
 
     return {
         users,

@@ -31,16 +31,13 @@ class Login extends Component {
             this.setState({
                 users: this.props.users
             })
-            console.log("prevProps", prevProps.users);
-            console.log("props from componentDidUpdate", this.props.users);
+
         }
 
     }
 
 
     render() {
-
-        console.log('xdddddddddddddd', this.props);
 
         return (
             <div className="container mt-5">
@@ -76,13 +73,6 @@ class Login extends Component {
                                     }}
                                 >Sign In</Link>
                         }
-
-
-
-
-
-
-
                     </div>
                 </div>
             </div>
@@ -93,11 +83,9 @@ class Login extends Component {
 
 
 function mapStateToProps({ users }) {
-    console.log('from maappping', users);
 
     return {
         users
-        //.sort((a, b) => tweets[b].timestamp - tweets[a].timestamp)
     }
 }
 

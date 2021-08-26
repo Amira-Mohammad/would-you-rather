@@ -1,9 +1,9 @@
 import React from 'react';
-import { TabContent, TabPane, Nav, NavItem, NavLink, Card, Button, CardTitle, CardText, Row, Col } from 'reactstrap';
+import { Card, CardTitle, CardText } from 'reactstrap';
 
 const QuestionPoll = (props) => {
     //const Q_forPoll = props.location.state.Q_forPoll
-    console.log("QuestionPoll", props)
+
     return (
         <div className="col-6  col-center">
             <Card className="p-0" body>
