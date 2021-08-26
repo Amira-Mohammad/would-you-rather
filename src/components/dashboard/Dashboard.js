@@ -16,14 +16,17 @@ const Dashboard = (props) => {
         props.dispatch(handleInitialData())
         if (!props.question) {
 
+            console.log('trueeeeeeee', props.questions);
+
 
             setQuestion(props.questions)
+
         }
         console.log('typeof question', typeof question);
         console.log('questionssssssssssssssss', question);
         console.log('propsssssssss from dashhhhhhhhhhboard', props);
 
-    });
+    }, []);
 
 
 
@@ -35,7 +38,10 @@ const Dashboard = (props) => {
 
     return (
         <>
-            <NavBar loginUser={props.location.state.loginUser} />
+            {console.log("dddddddd", props.questions)}
+            <NavBar
+            // loginUser={props.location.state.loginUser} 
+            />
 
             <div className="container col-6 col-center mt-5 border p-2">
 
@@ -63,8 +69,10 @@ const Dashboard = (props) => {
                         <Row className="mt-4">
                             <Col sm="12">
 
-                                {Object.keys(question).map((Q) => {
-                                    return (<UnAnsweredQuestions Q={question[Q]} />
+                                {Object.keys(props.questions).map((Q) => {
+                                    console.log('Q from looping', Q);
+
+                                    return (<UnAnsweredQuestions usersData={props.users} Q={props.questions[Q]} />
 
                                     )
                                 })}
@@ -89,11 +97,12 @@ const Dashboard = (props) => {
     );
 };
 
-function mapStateToProps({ questions }) {
+function mapStateToProps({ questions, users }) {
     console.log('questions from maappping', questions);
 
     return {
-        questions
+        questions,
+        users
         //.sort((a, b) => tweets[b].timestamp - tweets[a].timestamp)
     }
 }

@@ -18,7 +18,6 @@ class Login extends Component {
     }
 
     changeLoginUser(e) {
-        console.log("Fruit Selected!!");
         this.setState({ loginUser: e.target.value });
 
     }
@@ -41,7 +40,7 @@ class Login extends Component {
 
     render() {
 
-        console.log('xdddddddddddddd', this.state);
+        console.log('xdddddddddddddd', this.props);
 
         return (
             <div className="container mt-5">
@@ -54,6 +53,7 @@ class Login extends Component {
                         <h5 className="card-title baseColor">Sign In</h5>
                         <p className="card-text fw-bold">Do already have an account?</p>
                         <select className="d-block form-control my-3" onChange={this.changeLoginUser} value={this.state.loginUser}>
+                            <option defaultChecked>please Select</option>
                             {Object.keys(this.state.users).map((user) => {
                                 return (
                                     <option>{this.state.users[user].name}</option>
@@ -61,10 +61,28 @@ class Login extends Component {
                             })}
                         </select>
 
-                        <Link className="btn px-5"
-                            to={{ pathname: "/dashboard", state: { loginUser: this.state.loginUser } }}
-                        //to="/dashboard"
-                        >Sign In</Link>
+
+                        {
+                            this.state.loginUser === ''
+                                ? <Link to={{ pathname: "/dashboard", state: { loginUser: this.state.loginUser } }}
+                                    className="btn px-5"
+                                    onClick={(event) => event.preventDefault()}>
+                                    Sign In
+                                </Link>
+                                : <Link className="btn px-5"
+                                    to={{
+                                        pathname: "/dashboard"
+                                        , state: { loginUser: this.state.loginUser }
+                                    }}
+                                >Sign In</Link>
+                        }
+
+
+
+
+
+
+
                     </div>
                 </div>
             </div>
