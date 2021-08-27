@@ -7,11 +7,13 @@ import NewQuestion from './components/newQuestion/NewQuestion';
 import LeaderBoard from './components/leaderBoard/LeaderBoard';
 import QuestionDetails from './components/dashboard/questionDetails/QuestionDetails';
 import QuestionPoll from './components/dashboard/questionPoll/QuestionPoll';
+import { connect } from 'react-redux';
 
-function App() {
+function App(props) {
+  console.log('xeeeeeeeee', props.users.loginUser);
 
   const PrivateRoute = ({ component: Component, ...rest }) => {
-    const user = true;
+    const user = props.users.loginUser && props.users.loginUser || false;
     return <Route {...rest} render={(props) => (
       !user
         ? <Redirect to='/' />
@@ -53,4 +55,11 @@ function App() {
   );
 }
 
-export default App;
+function mapStateToProps({ users }) {
+
+  return {
+    users,
+  }
+}
+
+export default connect(mapStateToProps)(App);

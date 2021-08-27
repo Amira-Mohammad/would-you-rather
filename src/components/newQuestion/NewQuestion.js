@@ -33,6 +33,8 @@ class NewQuestion extends Component {
             FirstOption: '',
             SecondOption: ''
         }))
+
+
     }
 
     render() {

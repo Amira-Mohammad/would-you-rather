@@ -1,6 +1,20 @@
-# Getting Started with Create React App
+# MyReads Project
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is the starter template for the final assessment project for Udacity's React react-redux course. The goal of this project is to practise on topics that are included in the previous module such as 
+├── react
+├── react redux
+├── React router "dynamic routing"
+├── thunk 
+
+And I used some of packages that are compatable with React to acheive this project such as 
+├── redux
+├── react-redux
+├── react router dom
+├── redux-thunk
+
+And for backend integration I used API file attached inside starter files project
+
+
 
 ## Available Scripts
 
@@ -68,3 +82,4 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+

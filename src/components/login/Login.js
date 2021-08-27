@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import './login.scss'
 import { connect } from 'react-redux';
 import { handleInitialData } from '../../Actions/index';
+import { setLoginUser } from '../../Actions/Users'
 
 
 class Login extends Component {
@@ -19,11 +20,16 @@ class Login extends Component {
 
     changeLoginUser(e) {
         this.setState({ loginUser: e.target.value });
+        this.props.setLoginUser(e.target.value)
+        // if (this.props.loginUser == undefined) {
+        //     this.props.loginUser = this.state.loginUser
+
+        // }
 
     }
 
     componentDidMount() {
-        this.props.dispatch(handleInitialData())
+        this.props.handleInitialData()
 
     }
     componentDidUpdate(prevProps) {
@@ -34,10 +40,11 @@ class Login extends Component {
 
         }
 
+
+
     }
-
-
     render() {
+
 
         return (
             <div className="container mt-5">
@@ -51,11 +58,17 @@ class Login extends Component {
                         <p className="card-text fw-bold">Do already have an account?</p>
                         <select className="d-block form-control my-3" onChange={this.changeLoginUser} value={this.state.loginUser}>
                             <option defaultChecked>please Select</option>
-                            {Object.keys(this.state.users).map((user) => {
-                                return (
-                                    <option>{this.state.users[user].name}</option>
-                                )
-                            })}
+                            {Object.keys(this.state.users).length > 0 &&
+                                Object.keys(this.state.users.users).map((user) => {
+                                    console.log('userssssssss', this.state.users.users[user]);
+
+                                    return (
+
+                                        <option key={user.id}>{user}</option>
+
+
+                                    )
+                                })}
                         </select>
 
 
@@ -84,10 +97,22 @@ class Login extends Component {
 
 function mapStateToProps({ users }) {
 
+
     return {
-        users
+        users,
+    }
+}
+
+function mapDispatchToProps(dispatch) {
+    return {
+        handleInitialData: () => {
+            dispatch(handleInitialData())
+        },
+        setLoginUser: (user) => {
+            dispatch(setLoginUser(user))
+        }
     }
 }
 
 
-export default connect(mapStateToProps)(Login);
+export default connect(mapStateToProps, mapDispatchToProps)(Login);

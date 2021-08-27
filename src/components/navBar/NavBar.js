@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { Link } from "react-router-dom";
 const NavBar = (props) => {
 
@@ -20,11 +21,18 @@ const NavBar = (props) => {
 
 
                     </div>
-                    <div>Hello <span className="fw-bold">ourUser</span></div>
+                    <div>Hello <span className="fw-bold">{props.users.loginUser}</span></div>
                 </div>
             </div>
         </nav>
     );
 };
 
-export default NavBar;
+
+function mapStateToProps({ users }) {
+    return {
+        users,
+    }
+}
+
+export default connect(mapStateToProps)(NavBar);

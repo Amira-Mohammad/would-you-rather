@@ -33,65 +33,60 @@ class LeaderBoard extends Component {
             })
 
         }
-
     }
 
     render() {
+        console.log('props fro leaderboard', this.props.users);
+
 
         return (
             <div>
                 <NavBar />
 
-                {Object.keys(this.state.users).map((user) => {
-                    return (
+                {Object.keys(this.props.users).length > 0 &&
+                    Object.keys(this.props.users).map((user) => {
 
-                        <Card className="p-0 container col-6 col-center " body>
-                            <CardText className="p-2">
-                                <div className="d-flex ">
-                                    <div className="imgAvatar d-flex flex-column justify-content-center rounded-circle border">
-                                        props.Q.author
-                                    </div>
-                                    <div className="px-3 border-end  "> <span className="visually-hidden">ssssssss</span></div>
-                                    <div className="w-75 border-end  px-3">
-                                        <div className="fw-bold bgLightColor">{this.state.users[user].name}</div>
-                                        <div className="d-flex justify-content-around">
-                                            <div>Answered Questions</div>
-                                            <div>5</div>
+                        console.log('x', typeof user.id);
+
+                        return (
+
+                            <Card key={user.id} className=" Card p-0 container col-6 col-center " body>
+                                <CardText className="p-2">
+                                    <div className="d-flex ">
+                                        <div className="imgAvatar d-flex flex-column justify-content-center rounded-circle border">
+                                            props.Q.author
                                         </div>
+                                        <div className="px-3 border-end  "> <span className="visually-hidden">ssssssss</span></div>
+                                        <div className="w-75 border-end  px-3">
+                                            <div className="fw-bold bgLightColor">{user.name}</div>
+                                            <div className="d-flex justify-content-around">
+                                                <div>Answered Questions</div>
+                                                <div>{user.answers}</div>
+                                            </div>
 
-                                        <div className="d-flex justify-content-around">
-                                            <div>Created Questions</div>
-                                            <div>7</div>
+                                            <div className="d-flex justify-content-around">
+                                                <div>Created Questions</div>
+                                                <div>7</div>
+                                            </div>
+
                                         </div>
+                                        <div className="px-3">
+                                            <div className="card" >
+                                                <div className="bg-light p-3 border-bottom">Score</div>
+                                                <div className="card-body d-flex justify-content-center text-light">
+                                                    <div className="score card-text border rounded-circle bg-success">
+                                                        {user.questions}
 
-                                    </div>
-                                    <div className="px-3">
-                                        <div className="card" >
-                                            <div className="bg-light p-3 border-bottom">Score</div>
-                                            <div className="card-body d-flex justify-content-center text-light">
-                                                <div className="score card-text border rounded-circle bg-success">
-                                                    {this.props.users.johndoe.questions.length}
+                                                    </div>
 
                                                 </div>
-
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-
-
-                            </CardText>
-
-                        </Card>
-
-
-
-
-                    )
-                })}
-
-
-
+                                </CardText>
+                            </Card>
+                        )
+                    })}
 
             </div>
         );

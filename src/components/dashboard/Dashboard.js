@@ -67,7 +67,7 @@ const Dashboard = (props) => {
 
                                 {Object.keys(props.questions).sort((a, b) => props.questions[b].timestamp - props.questions[a].timestamp)
                                     .map((Q) => {
-                                        return (<UnAnsweredQuestions usersData={props.users} Q={props.questions[Q]} />
+                                        return (<UnAnsweredQuestions key={Q.id} usersData={props.users} Q={props.questions[Q]} />
 
                                         )
                                     })}
@@ -78,7 +78,7 @@ const Dashboard = (props) => {
                         <Row className="mt-4">
                             <Col sm="12">
                                 {Object.keys(props.questions).map((Q) => {
-                                    return (<AnsweredQuestions Q={props.questions[Q]} />
+                                    return (<AnsweredQuestions key={Q.id} Q={props.questions[Q]} />
 
                                     )
                                 })
@@ -97,11 +97,9 @@ function mapStateToProps({ questions, users }) {
     console.log('x', questions);
 
     return {
-        questions: questions
-        //.sort((a, b) => questions[b].timestamp - questions[a].timestamp)
-        ,
+        questions,
         users
-        //.sort((a, b) => tweets[b].timestamp - tweets[a].timestamp)
+
     }
 }
 
