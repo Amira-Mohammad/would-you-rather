@@ -1,4 +1,4 @@
-import { RECEIVE_QUESTION, ADD_QUESTION } from '../Actions/Questions';
+import { RECEIVE_QUESTION, ADD_QUESTION, SAVE_Q_ANSWER } from '../Actions/Questions';
 
 export default function questions(state = {}, action) {
     // debugger
@@ -14,6 +14,12 @@ export default function questions(state = {}, action) {
             return {
                 ...state,
                 [action.question.id]: action.question
+            }
+
+        case SAVE_Q_ANSWER:
+            return {
+                ...state,
+                ...action.answer
             }
 
         default:

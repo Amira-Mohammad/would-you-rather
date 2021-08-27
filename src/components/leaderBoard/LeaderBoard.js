@@ -12,28 +12,10 @@ class LeaderBoard extends Component {
             users: {},
             questions: {}
         };
-        this.showrendersUsers = this.showrendersUsers.bind(this);
+
     }
-
-
-
-
-    showrendersUsers() {
-        const renderedUsers = this.props.users.users
-
-        for (const property in renderedUsers) {
-            console.log('x', renderedUsers[property]["answers"]);
-            return (
-                <div>dddddddddddd</div>
-            )
-
-
-        }
-    }
-
     componentDidMount() {
         this.props.dispatch(handleInitialData())
-        this.showrendersUsers()
 
     }
     componentDidUpdate(prevProps) {
@@ -53,43 +35,50 @@ class LeaderBoard extends Component {
         }
     }
 
-
-
-
     render() {
 
+        const renderedUsers = this.props.users.users
 
+        for (const property in renderedUsers) {
+            console.log('x', renderedUsers[property]["answers"]);
+
+
+        }
 
         return (
             <div>
                 <NavBar />
 
-                {this.showrendersUsers}
 
-                {/* {Object.keys(this.props.users).length > 0 &&
-                    Object.keys(this.props.users).map((user) => {
 
-                        
+                {Object.entries(this.props.users).length > 0 &&
+                    Object.entries(this.props.users.users).map((user) => {
+                        console.log('xcccccccccccc', user[1].questions);
+                        console.log('typeof user', typeof user);
+
+                        const answersCount = Object.keys(user[1].answers).length
+                        const questionCount = Object.keys(user[1].questions).length
+                        console.log('answersCount', answersCount);
+
+
 
                         return (
 
                             <Card key={user.id} className=" Card p-0 container col-6 col-center " body>
                                 <CardText className="p-2">
                                     <div className="d-flex ">
-                                        <div className="imgAvatar d-flex flex-column justify-content-center rounded-circle border">
-                                            props.Q.author
-                                        </div>
+                                        <img className="border border-success rounded-circle p-1" style={{ width: 100, height: 100 }} src={user[1].avatarURL} />
                                         <div className="px-3 border-end  "> <span className="visually-hidden">ssssssss</span></div>
                                         <div className="w-75 border-end  px-3">
-                                            <div className="fw-bold bgLightColor">{user.name}</div>
+                                            <div className="fw-bold bgLightColor">{user[1].name}</div>
                                             <div className="d-flex justify-content-around">
                                                 <div>Answered Questions</div>
-                                                <div>{user.answers}</div>
+                                                <div>{answersCount}</div>
                                             </div>
 
                                             <div className="d-flex justify-content-around">
                                                 <div>Created Questions</div>
-                                                <div>7</div>
+                                                <div>{questionCount}</div>
                                             </div>
 
                                         </div>
@@ -108,7 +97,7 @@ class LeaderBoard extends Component {
                                 </CardText>
                             </Card>
                         )
-                    })} */}
+                    })}
 
             </div>
         );

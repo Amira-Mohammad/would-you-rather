@@ -3,6 +3,7 @@ import { Card, CardTitle, CardText } from 'reactstrap';
 import { Link } from "react-router-dom";
 import './UnAnsweredQuestions.css'
 const UnAnsweredQuestions = (props) => {
+    console.log('props from UnAnsweredQuestions', props.usersData);
 
     return (
         <div>

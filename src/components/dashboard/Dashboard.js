@@ -10,6 +10,9 @@ import './Dashboard.scss'
 
 const Dashboard = (props) => {
 
+    console.log('xssssssss', props);
+
+
     const [question, setQuestion] = useState({});
 
     useEffect(() => {
@@ -92,8 +95,6 @@ const Dashboard = (props) => {
 };
 
 function mapStateToProps({ questions, users }) {
-
-
     return {
         questions,
         users
