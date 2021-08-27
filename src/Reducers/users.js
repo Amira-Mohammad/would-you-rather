@@ -10,7 +10,7 @@ export default function users(state = {}, action) {
                 users: { ...action.users }
             }
         case SET_LOGIN_USER:
-            console.log("action login", action.loginUser)
+
             return {
                 ...state,
                 loginUser: action.loginUser

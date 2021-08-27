@@ -28,7 +28,7 @@ class NewQuestion extends Component {
         const { dispatch } = this.props
         const { FirstOption, SecondOption } = this.state
 
-        dispatch(handleAddQuestion(FirstOption, SecondOption, 'tylermcginnis'))
+        dispatch(handleAddQuestion(FirstOption, SecondOption, this.props.users.loginUser))
         this.setState(() => ({
             FirstOption: '',
             SecondOption: ''
@@ -38,6 +38,8 @@ class NewQuestion extends Component {
     }
 
     render() {
+        console.log('props from dashboard', this.props.users.loginUser);
+
         return (
             <div className="container">
                 <Navbar />
@@ -79,10 +81,11 @@ class NewQuestion extends Component {
         );
     }
 }
-function mapStateToProps({ questions }) {
+function mapStateToProps({ questions, users }) {
 
     return {
-        questions
+        questions,
+        users
 
     }
 }

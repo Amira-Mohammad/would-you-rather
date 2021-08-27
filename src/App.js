@@ -10,7 +10,7 @@ import QuestionPoll from './components/dashboard/questionPoll/QuestionPoll';
 import { connect } from 'react-redux';
 
 function App(props) {
-  console.log('xeeeeeeeee', props.users.loginUser);
+
 
   const PrivateRoute = ({ component: Component, ...rest }) => {
     const user = props.users.loginUser && props.users.loginUser || false;

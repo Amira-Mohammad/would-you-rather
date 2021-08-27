@@ -12,10 +12,28 @@ class LeaderBoard extends Component {
             users: {},
             questions: {}
         };
-
+        this.showrendersUsers = this.showrendersUsers.bind(this);
     }
+
+
+
+
+    showrendersUsers() {
+        const renderedUsers = this.props.users.users
+
+        for (const property in renderedUsers) {
+            console.log('x', renderedUsers[property]["answers"]);
+            return (
+                <div>dddddddddddd</div>
+            )
+
+
+        }
+    }
+
     componentDidMount() {
         this.props.dispatch(handleInitialData())
+        this.showrendersUsers()
 
     }
     componentDidUpdate(prevProps) {
@@ -35,18 +53,23 @@ class LeaderBoard extends Component {
         }
     }
 
+
+
+
     render() {
-        console.log('props fro leaderboard', this.props.users);
+
 
 
         return (
             <div>
                 <NavBar />
 
-                {Object.keys(this.props.users).length > 0 &&
+                {this.showrendersUsers}
+
+                {/* {Object.keys(this.props.users).length > 0 &&
                     Object.keys(this.props.users).map((user) => {
 
-                        console.log('x', typeof user.id);
+                        
 
                         return (
 
@@ -76,7 +99,6 @@ class LeaderBoard extends Component {
                                                 <div className="card-body d-flex justify-content-center text-light">
                                                     <div className="score card-text border rounded-circle bg-success">
                                                         {user.questions}
-
                                                     </div>
 
                                                 </div>
@@ -86,7 +108,7 @@ class LeaderBoard extends Component {
                                 </CardText>
                             </Card>
                         )
-                    })}
+                    })} */}
 
             </div>
         );

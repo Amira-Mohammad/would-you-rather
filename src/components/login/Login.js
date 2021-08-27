@@ -60,7 +60,7 @@ class Login extends Component {
                             <option defaultChecked>please Select</option>
                             {Object.keys(this.state.users).length > 0 &&
                                 Object.keys(this.state.users.users).map((user) => {
-                                    console.log('userssssssss', this.state.users.users[user]);
+
 
                                     return (
 

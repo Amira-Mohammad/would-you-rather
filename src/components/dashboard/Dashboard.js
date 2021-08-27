@@ -13,13 +13,13 @@ const Dashboard = (props) => {
     const [question, setQuestion] = useState({});
 
     useEffect(() => {
-        props.dispatch(handleInitialData())
-        if (!props.question) {
+        // props.handleInitialData()
+        // if (!props.question) {
 
 
-            setQuestion(props.questions)
+        //     setQuestion(props.questions)
 
-        }
+        // }
 
 
     }, []);
@@ -35,9 +35,7 @@ const Dashboard = (props) => {
     return (
         <>
 
-            <NavBar
-            // loginUser={props.location.state.loginUser} 
-            />
+            <NavBar />
 
             <div className="container col-6 col-center mt-5 border p-2">
 
@@ -94,7 +92,7 @@ const Dashboard = (props) => {
 };
 
 function mapStateToProps({ questions, users }) {
-    console.log('x', questions);
+
 
     return {
         questions,
@@ -103,4 +101,13 @@ function mapStateToProps({ questions, users }) {
     }
 }
 
-export default connect(mapStateToProps)(Dashboard);
+function mapDispatchToProps(dispatch) {
+    return {
+        handleInitialData: () => {
+            dispatch(handleInitialData())
+        }
+    }
+}
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(Dashboard);
