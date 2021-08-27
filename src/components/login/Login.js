@@ -55,7 +55,7 @@ class Login extends Component {
                     </div>
                     <div className="card-body d-flex flex-column">
                         <h5 className="card-title baseColor">Sign In</h5>
-                        <p className="card-text fw-bold">Do already have an account?</p>
+                        <div className="card-text fw-bold">Do already have an account?</div>
                         <select className="d-block form-control my-3" onChange={this.changeLoginUser} value={this.state.loginUser}>
                             <option defaultChecked>please Select</option>
                             {Object.keys(this.state.users).length > 0 &&

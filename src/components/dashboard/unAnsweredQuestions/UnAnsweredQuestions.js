@@ -7,7 +7,7 @@ const UnAnsweredQuestions = (props) => {
 
     return (
         <div>
-            <Card className="p-0 m-2" body>
+            <Card className="p-0 m-2" >
                 <CardTitle className="bg_colors_2 text-white fw-bold text-start p-2 ">{props.Q.author} Asks</CardTitle>
                 <CardText className="p-2">
                     <div className="d-flex">

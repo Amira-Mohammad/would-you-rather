@@ -8,37 +8,39 @@ import { handleAnswerQuestion } from '../../../Actions/Questions'
 
 class QuestionDetails extends Component {
 
-    render() {
+    constructor(props) {
+        super(props);
+        this.state = {};
+    }
 
-        console.log('xbbbbbbbb', this.props.users.loginUser);
+    handleChange = e => {
+        const { name, value } = e.target;
+
+        this.setState({
+            [name]: value
+        });
+    };
+
+
+    render() {
 
 
         const questionProps_Data = this.props.location.state.questionProps
-        console.log('xsaadfsf', questionProps_Data.id);
-
+        console.log('this.state ==> QuestionDetails ', questionProps_Data.id);
         const submitVote = (e) => {
             e.preventDefault()
             console.log('submitVote');
             const { dispatch } = this.props
-            //const { FirstOption, SecondOption } = this.state
 
+            dispatch(handleAnswerQuestion(this.props.users.loginUser, questionProps_Data.id, this.state.exampleRadios))
 
-
-            dispatch(handleAnswerQuestion(this.props.users.loginUser, questionProps_Data.id, "yes"))
-
-
-
-            // this.setState(() => ({
-            //     FirstOption: '',
-            //     SecondOption: ''
-            // }))
         }
         return (
             <>
                 <NavBar />
                 <div className="container col-6 col-center">
 
-                    <Card className="p-0 m-2" body>
+                    <Card className="p-0 m-2" >
                         <CardTitle className="bg_colors_2 text-white fw-bold text-start p-2 ">
                             {/* {props.Q.author}  */}
                             {questionProps_Data.author} Asks </CardTitle>
@@ -51,14 +53,19 @@ class QuestionDetails extends Component {
                                     </div>
 
                                     <div>
-                                        <input class="form-check-input mx-2" type="radio" name="exampleRadios" id="exampleRadios1" value="" checked />
-                                        <label class="form-check-label" for="exampleRadios1">
+                                        <input className="form-check-input mx-2" type="radio" name="exampleRadios" id="exampleRadios1"
+                                            value='optionOne'
+                                            onChange={this.handleChange} />
+                                        <label className="form-check-label" htmlFor="exampleRadios1">
                                             {this.props.location.state.questionProps.optionOne.text}
                                         </label>
                                     </div>
                                     <div>
-                                        <input class="form-check-input mx-2" type="radio" name="exampleRadios" id="exampleRadios2" value="" />
-                                        <label class="form-check-label" for="exampleRadios2">
+                                        <input className="form-check-input mx-2" type="radio" name="exampleRadios" id="exampleRadios2"
+                                            value='optionTwo'
+                                            onChange={this.handleChange}
+                                        />
+                                        <label className="form-check-label" htmlFor="exampleRadios2">
                                             {this.props.location.state.questionProps.optionTwo.text}
                                         </label>
                                     </div>

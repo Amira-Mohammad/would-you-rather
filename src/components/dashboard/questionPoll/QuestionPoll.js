@@ -8,7 +8,7 @@ const QuestionPoll = (props) => {
     console.log('authorxxxxxxxxxx', author);
     return (
         <div className="col-6  col-center">
-            <Card className="p-0" body>
+            <Card className="p-0" >
                 <CardTitle className="bg-light fw-bold text-start p-2 ">{author} Asks</CardTitle>
                 <CardText className="p-2">
                     <div className="d-flex">

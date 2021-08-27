@@ -43,7 +43,7 @@ class NewQuestion extends Component {
         return (
             <div className="container">
                 <Navbar />
-                <Card className="p-0  col-6  col-center " body>
+                <Card className="p-0  col-6  col-center " >
                     <CardTitle className="border-bottom text-body text-center fw-bold  p-2 ">
                         <h4>Create New Question</h4>
                     </CardTitle>

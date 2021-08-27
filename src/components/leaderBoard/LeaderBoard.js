@@ -64,11 +64,11 @@ class LeaderBoard extends Component {
 
                         return (
 
-                            <Card key={user.id} className=" Card p-0 container col-6 col-center " body>
+                            <Card key={user.id} className=" Card p-0 container col-6 col-center " >
                                 <CardText className="p-2">
                                     <div className="d-flex ">
                                         <img className="border border-success rounded-circle p-1" style={{ width: 100, height: 100 }} src={user[1].avatarURL} />
-                                        <div className="px-3 border-end  "> <span className="visually-hidden">ssssssss</span></div>
+                                        <div className="px-3 border-end"> <span className="visually-hidden">ssssssss</span></div>
                                         <div className="w-75 border-end  px-3">
                                             <div className="fw-bold bgLightColor">{user[1].name}</div>
                                             <div className="d-flex justify-content-around">
