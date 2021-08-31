@@ -3,9 +3,8 @@ import { Card, CardTitle, CardText } from 'reactstrap';
 
 const QuestionPoll = (props) => {
     //const Q_forPoll = props.location.state.Q_forPoll
-    console.log('xprops', props.location.state.Q_forPoll);
+
     const { author, optionOne, optionTwo } = props.location.state.Q_forPoll
-    console.log('authorxxxxxxxxxx', author);
     return (
         <div className="col-6  col-center">
             <Card className="p-0" >

@@ -4,14 +4,16 @@ import './index.scss';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.css';
-import { createStore } from 'redux';
-import { Provider } from 'react-redux';
+import { createStore, compose } from 'redux';
+import { Provider, } from 'react-redux';
 import reducers from './Reducers';
 import middleware from './Middlewares';
 
+const composeEnhancers = (typeof window !== 'undefined' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) || compose;
 
-const store = createStore(reducers, middleware)
+// const store = createStore(reducers, middleware)
 
+const store = createStore(reducers, composeEnhancers(middleware));
 
 ReactDOM.render(
   <React.StrictMode>

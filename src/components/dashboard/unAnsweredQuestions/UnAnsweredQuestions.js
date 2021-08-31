@@ -3,7 +3,7 @@ import { Card, CardTitle, CardText } from 'reactstrap';
 import { Link } from "react-router-dom";
 import './UnAnsweredQuestions.css'
 const UnAnsweredQuestions = (props) => {
-    console.log('props from UnAnsweredQuestions', props.usersData);
+    // console.log('props from UnAnsweredQuestions', props.usersData);
 
     return (
         <div>
@@ -15,7 +15,7 @@ const UnAnsweredQuestions = (props) => {
                         {/* <div className="imgAvatar border-success d-flex flex-column justify-content-center rounded-circle border">
                             {props.Q.author}
                         </div> */}
-                        <img className="border border-success rounded-circle p-1" style={{ width: 100, height: 100 }} src={`https://robohash.org/c3b1926434ce48c1e29610a692016f70?set=set4&bgset=&size=400x400`} />
+                        <img className="border border-success rounded-circle p-1" style={{ width: 100, height: 100 }} src={props.avatar} />
                         <div className="px-3 border-end border-success"> <span className="visually-hidden">ssssssss</span></div>
 
                         <div className="w-75">
@@ -24,8 +24,8 @@ const UnAnsweredQuestions = (props) => {
 
 
                                 {/* {props.Q.id} */}
-                                <div>{props.Q.optionOne.text}</div>
-                                <div>{props.Q.optionTwo.text}</div>
+                                <div>{props.Q.optionOne?.text}</div>
+                                <div>{props.Q.optionTwo?.text}</div>
 
                             </div>
 

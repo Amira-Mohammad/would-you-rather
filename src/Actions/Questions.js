@@ -21,11 +21,11 @@ function addQuestion(question) {
 
 }
 
-function saveQuestionAnswer(answer) {
+function saveQuestionAnswer(payload) {
 
     return {
         type: SAVE_Q_ANSWER,
-        answer
+        payload
     }
 
 }
@@ -33,6 +33,8 @@ function saveQuestionAnswer(answer) {
 
 export function handleAnswerQuestion(authedUser, qid, answer) {
     return (dispatch) => {
+
+
         return answerQuestion(
             {
                 authedUser,
@@ -40,8 +42,8 @@ export function handleAnswerQuestion(authedUser, qid, answer) {
                 answer,
             }
 
-        ).then((answer) => {
-            dispatch(saveQuestionAnswer(answer))
+        ).then(() => {
+            dispatch(saveQuestionAnswer({ authedUser, qid, answer }))
         })
 
     }

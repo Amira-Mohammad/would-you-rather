@@ -8,6 +8,7 @@ import LeaderBoard from './components/leaderBoard/LeaderBoard';
 import QuestionDetails from './components/dashboard/questionDetails/QuestionDetails';
 import QuestionPoll from './components/dashboard/questionPoll/QuestionPoll';
 import { connect } from 'react-redux';
+import NotFound from './components/notFound/NotFound';
 
 function App(props) {
 
@@ -16,7 +17,12 @@ function App(props) {
     const user = props.users.loginUser && props.users.loginUser || false;
     return <Route {...rest} render={(props) => (
       !user
-        ? <Redirect to='/' />
+        ? <Redirect
+          to={{
+            pathname: '/',
+            state: { from: props.location }
+          }}
+        />
         //handleChildFunc={handleChildFunc} 
         :
         <Component {...props} user={user} />
@@ -32,11 +38,12 @@ function App(props) {
         <Switch>
           <Route exact path="/" component={Login} />
           {/* <Route path="/dashboard" component={Dashboard} /> */}
-          <Route path="/home" component={Home} />
-          <Route path="/newquestion" component={NewQuestion} />
-          <Route path="/leaderboard" component={LeaderBoard} />
-          <Route path="/questionDetails/:id" component={QuestionDetails} />
-          <Route path="/questionPoll" component={QuestionPoll} />
+          <PrivateRoute exact path="/home" component={Home} />
+          <PrivateRoute exact path="/newquestion" component={NewQuestion} />
+          <PrivateRoute exact path="/leaderboard" component={LeaderBoard} />
+          <PrivateRoute exact path="/questionDetails/:id" component={QuestionDetails} />
+          <PrivateRoute exact path="/questionPoll" component={QuestionPoll} />
+
 
           <PrivateRoute
             path='/dashboard'
@@ -45,7 +52,7 @@ function App(props) {
           // handleChildFunc={this.handleChildFunc}
           />
 
-
+          <Route component={NotFound} />
         </Switch>
       </BrowserRouter>
 

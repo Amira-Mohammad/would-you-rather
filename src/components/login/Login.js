@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import './login.scss'
 import { connect } from 'react-redux';
 import { handleInitialData } from '../../Actions/index';
@@ -12,14 +12,18 @@ class Login extends Component {
         super(props);
         this.state = {
             users: {},
-            loginUser: ''
+            loginUser: '',
+            redirectToReferrer: false
         };
 
         this.changeLoginUser = this.changeLoginUser.bind(this);
     }
 
     changeLoginUser(e) {
-        this.setState({ loginUser: e.target.value });
+        this.setState({
+            loginUser: e.target.value,
+            redirectToReferrer: true
+        });
         this.props.setLoginUser(e.target.value)
         // if (this.props.loginUser == undefined) {
         //     this.props.loginUser = this.state.loginUser
@@ -44,7 +48,11 @@ class Login extends Component {
 
     }
     render() {
-
+        const { redirectToReferrer } = this.state
+        const { from } = this.props.location.state || { from: { pathname: '/' } }
+        if (redirectToReferrer === true && from.pathname !== '/') {
+            return <Redirect to={from} />
+        }
 
         return (
             <div className="container mt-5">

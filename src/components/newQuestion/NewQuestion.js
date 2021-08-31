@@ -38,8 +38,6 @@ class NewQuestion extends Component {
     }
 
     render() {
-        console.log('props from dashboard', this.props.users.loginUser);
-
         return (
             <div className="container">
                 <Navbar />

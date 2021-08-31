@@ -15,7 +15,7 @@ class LeaderBoard extends Component {
 
     }
     componentDidMount() {
-        this.props.dispatch(handleInitialData())
+        // this.props.dispatch(handleInitialData())
 
     }
     componentDidUpdate(prevProps) {
@@ -40,7 +40,7 @@ class LeaderBoard extends Component {
         const renderedUsers = this.props.users.users
 
         for (const property in renderedUsers) {
-            console.log('x', renderedUsers[property]["answers"]);
+            // console.log('x', renderedUsers[property]["answers"]);
 
 
         }
@@ -53,18 +53,16 @@ class LeaderBoard extends Component {
 
                 {Object.entries(this.props.users).length > 0 &&
                     Object.entries(this.props.users.users).map((user) => {
-                        console.log('xcccccccccccc', user[1].questions);
-                        console.log('typeof user', typeof user);
+                        // console.log('xcccccccccccc', user[1].questions);
+                        // console.log('typeof user', typeof user);
 
                         const answersCount = Object.keys(user[1].answers).length
                         const questionCount = Object.keys(user[1].questions).length
-                        console.log('answersCount', answersCount);
-
-
+                        //console.log('answersCount', answersCount);
 
                         return (
 
-                            <Card key={user.id} className=" Card p-0 container col-6 col-center " >
+                            <Card key={user.id} className=" Card p-0 container col-6 col-center my-2" >
                                 <CardText className="p-2">
                                     <div className="d-flex ">
                                         <img className="border border-success rounded-circle p-1" style={{ width: 100, height: 100 }} src={user[1].avatarURL} />

@@ -26,13 +26,14 @@ class QuestionDetails extends Component {
 
 
         const questionProps_Data = this.props.location.state.questionProps
-        console.log('this.state ==> QuestionDetails ', questionProps_Data.id);
         const submitVote = (e) => {
             e.preventDefault()
-            console.log('submitVote');
             const { dispatch } = this.props
 
             dispatch(handleAnswerQuestion(this.props.users.loginUser, questionProps_Data.id, this.state.exampleRadios))
+            //this.props.history.push('/questionPoll')
+
+
 
         }
         return (
@@ -57,7 +58,7 @@ class QuestionDetails extends Component {
                                             value='optionOne'
                                             onChange={this.handleChange} />
                                         <label className="form-check-label" htmlFor="exampleRadios1">
-                                            {this.props.location.state.questionProps.optionOne.text}
+                                            {this.props.location.state.questionProps.optionOne?.text}
                                         </label>
                                     </div>
                                     <div>
@@ -66,7 +67,7 @@ class QuestionDetails extends Component {
                                             onChange={this.handleChange}
                                         />
                                         <label className="form-check-label" htmlFor="exampleRadios2">
-                                            {this.props.location.state.questionProps.optionTwo.text}
+                                            {this.props.location.state.questionProps.optionTwo?.text}
                                         </label>
                                     </div>
 
