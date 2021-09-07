@@ -29,7 +29,7 @@ const Dashboard = (props) => {
     let currentLogin = {}
     usersForLoop.map((userFormLoop) => {
 
-        if (userFormLoop[0] == props.users.loginUser) {
+        if (userFormLoop[0] === props.users.loginUser) {
             currentLogin = userFormLoop
         }
 
@@ -39,9 +39,6 @@ const Dashboard = (props) => {
     // console.log('currentLogin', Object.entries(currentLogin)[1][1].avatarURL);
 
     questionsForLoop.map((questionFormLoop) => {
-
-
-
         if (Object.entries(currentLogin)[1][1].answers.hasOwnProperty(questionFormLoop)) {
 
             //     if (currentLogin[1].answers.includes(questionFormLoop)[0]) {
@@ -56,8 +53,8 @@ const Dashboard = (props) => {
 
     })
 
-    // console.log('questions_Answered', questions_Answered);
-    // console.log('questions_UnAnswered', questions_UnAnswered);
+    console.log('questions_Answered', questions_Answered);
+    console.log('questions_UnAnswered', questions_UnAnswered);
 
 
 
@@ -81,7 +78,7 @@ const Dashboard = (props) => {
 
 
 
-    const [question, setQuestion] = useState({});
+    //const [question, setQuestion] = useState({});
 
     useEffect(() => {
         // props.handleInitialData()
@@ -112,7 +109,7 @@ const Dashboard = (props) => {
 
                 <Nav className="justify-content-center" tabs>
                     <NavItem className="w-50">
-                        <NavLink className="NavItem"
+                        <NavLink
                             className={classnames({ active: activeTab === '1' })}
                             onClick={() => { toggle('1'); }}
                         >
@@ -140,6 +137,7 @@ const Dashboard = (props) => {
                                     .map((question_UnAnswered) => {
                                         return (
                                             <UnAnsweredQuestions
+                                                key={question_UnAnswered.id}
                                                 avatar={Object.entries(currentLogin)[1][1].avatarURL}
                                                 Q={question_UnAnswered} />
 
@@ -167,6 +165,7 @@ const Dashboard = (props) => {
                             <Col sm="12">
                                 {questions_Answered.sort((a, b) => b.timestamp - a.timestamp).map((question_Answered) => {
                                     return (<AnsweredQuestions
+                                        key={question_Answered.id}
                                         avatar={Object.entries(currentLogin)[1][1].avatarURL}
                                         Q={question_Answered}
                                     />

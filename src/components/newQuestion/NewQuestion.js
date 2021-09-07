@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Card, CardTitle, CardText } from 'reactstrap';
+import { Card, CardTitle } from 'reactstrap';
 import { connect } from 'react-redux';
 import { handleAddQuestion } from '../../Actions/Questions'
 import Navbar from '../navBar/NavBar';
@@ -45,7 +45,7 @@ class NewQuestion extends Component {
                     <CardTitle className="border-bottom text-body text-center fw-bold  p-2 ">
                         <h4>Create New Question</h4>
                     </CardTitle>
-                    <CardText className="p-2">
+                    <div className="p-2">
                         <form onSubmit={this.handleSubmitOption}>
                             <div className="card-body d-flex flex-column">
                                 <div className="fw-bold bgLightColor">Would You Rather</div>
@@ -72,7 +72,7 @@ class NewQuestion extends Component {
 
                             </div>
                         </form>
-                    </CardText>
+                    </div>
 
                 </Card>
             </div>

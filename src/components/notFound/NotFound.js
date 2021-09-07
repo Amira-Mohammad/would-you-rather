@@ -1,5 +1,5 @@
 import React from 'react';
-import error from '../../imgs/404.jpg';
+//import error from '../../imgs/404.jpg';
 import './NotFound.scss'
 
 const NotFound = (props) => {

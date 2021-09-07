@@ -14,7 +14,9 @@ function App(props) {
 
 
   const PrivateRoute = ({ component: Component, ...rest }) => {
-    const user = props.users.loginUser && props.users.loginUser || false;
+    const user =
+      //props.users.loginUser &&
+      props.users.loginUser || false;
     return <Route {...rest} render={(props) => (
       !user
         ? <Redirect

@@ -37,7 +37,7 @@ class Login extends Component {
 
     }
     componentDidUpdate(prevProps) {
-        if (prevProps.users != this.props.users) {
+        if (prevProps.users !== this.props.users) {
             this.setState({
                 users: this.props.users
             })
@@ -72,7 +72,7 @@ class Login extends Component {
 
                                     return (
 
-                                        <option key={user.id}>{user}</option>
+                                        <option key={user}>{user}</option>
 
 
                                     )

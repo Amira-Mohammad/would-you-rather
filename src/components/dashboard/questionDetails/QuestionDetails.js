@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Card, CardTitle, CardText } from 'reactstrap';
+import { Link } from "react-router-dom";
 import NavBar from '../../navBar/NavBar';
 import './questionDetails.scss'
 import { connect } from 'react-redux';
@@ -26,11 +27,13 @@ class QuestionDetails extends Component {
 
 
         const questionProps_Data = this.props.location.state.questionProps
+        console.log('questionProps_Datassssssss', questionProps_Data);
+
         const submitVote = (e) => {
             e.preventDefault()
             const { dispatch } = this.props
 
-            dispatch(handleAnswerQuestion(this.props.users.loginUser, questionProps_Data.id, this.state.exampleRadios))
+            // dispatch(handleAnswerQuestion(this.props.users.loginUser, questionProps_Data.id, this.state.exampleRadios))
             //this.props.history.push('/questionPoll')
 
 
@@ -72,7 +75,20 @@ class QuestionDetails extends Component {
                                     </div>
 
 
-                                    <button onClick={submitVote} className="btn px-5">Submit vote</button>
+                                    {/* <button onClick={submitVote} className="btn px-5">Submit vote</button> */}
+
+                                    <button for="questionPoll" onClick={submitVote} className="btn px-5">
+                                        <Link id="questionPoll" className="btn px-5"
+                                            to={{
+                                                pathname: "/questionPoll"
+                                                , state: { questionProps_Data: questionProps_Data }
+                                            }}
+
+                                        >
+                                            Submit vote
+                                        </Link>
+                                    </button>
+
                                 </div>
                             </div>
 

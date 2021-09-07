@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, CardTitle, CardText } from 'reactstrap';
+import { Card, CardTitle } from 'reactstrap';
 import { Link } from "react-router-dom";
 const AnsweredQuestions = (props) => {
 
@@ -8,7 +8,7 @@ const AnsweredQuestions = (props) => {
         <div>
             <Card className="p-0 " >
                 <CardTitle className="bg_colors_2 text-white fw-bold text-start p-2 ">{props.Q.author} Asks</CardTitle>
-                <CardText className="p-2">
+                <div className="p-2">
                     <div className="d-flex">
                         <div className="imgAvatar border-success d-flex flex-column justify-content-center rounded-circle border">
                             {props.Q.author}
@@ -27,7 +27,7 @@ const AnsweredQuestions = (props) => {
                             </Link>
                         </div>
                     </div>
-                </CardText>
+                </div>
 
             </Card>
         </div>

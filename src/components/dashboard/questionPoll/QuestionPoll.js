@@ -2,9 +2,10 @@ import React from 'react';
 import { Card, CardTitle, CardText } from 'reactstrap';
 
 const QuestionPoll = (props) => {
-    //const Q_forPoll = props.location.state.Q_forPoll
+    const questionProps_Data = props.location.state.questionProps_Data
+    console.log('questionProps_Dataaaaaaaaaass', questionProps_Data);
 
-    const { author, optionOne, optionTwo } = props.location.state.Q_forPoll
+    const { author, optionOne, optionTwo } = questionProps_Data
     return (
         <div className="col-6  col-center">
             <Card className="p-0" >
@@ -17,8 +18,12 @@ const QuestionPoll = (props) => {
                         <div className="w-75">
                             <div className="fw-bold bgLightColor">Would You Rather</div>
                             <div className="QuestionTitle my-2">
-                                <div>{optionOne.text}</div>
-                                <div>{optionTwo.text}</div>
+                                <div>
+                                    {optionOne.text}
+                                </div>
+                                <div>
+                                    {optionTwo.text}
+                                </div>
                             </div>
                         </div>
                     </div>

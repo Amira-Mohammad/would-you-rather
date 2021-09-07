@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { Card, CardText } from 'reactstrap';
+import { Card } from 'reactstrap';
 import NavBar from '../navBar/NavBar';
 import { connect } from 'react-redux';
-import { handleInitialData } from '../../Actions/index';
+//import { handleInitialData } from '../../Actions/index';
 import './LeaderBoard.css'
 class LeaderBoard extends Component {
 
@@ -19,7 +19,7 @@ class LeaderBoard extends Component {
 
     }
     componentDidUpdate(prevProps) {
-        if (prevProps.users != this.props.users) {
+        if (prevProps.users !== this.props.users) {
             this.setState({
                 users: this.props.users
             })
@@ -27,7 +27,7 @@ class LeaderBoard extends Component {
         }
 
 
-        if (prevProps.questions != this.props.questions) {
+        if (prevProps.questions !== this.props.questions) {
             this.setState({
                 questions: this.props.questions
             })
@@ -37,13 +37,11 @@ class LeaderBoard extends Component {
 
     render() {
 
-        const renderedUsers = this.props.users.users
+        // const renderedUsers = this.props.users.users
 
-        for (const property in renderedUsers) {
-            // console.log('x', renderedUsers[property]["answers"]);
-
-
-        }
+        //for (const property in renderedUsers) {
+        // console.log('x', renderedUsers[property]["answers"]);
+        //}
 
         return (
             <div>
@@ -62,10 +60,10 @@ class LeaderBoard extends Component {
 
                         return (
 
-                            <Card key={user.id} className=" Card p-0 container col-6 col-center my-2" >
-                                <CardText className="p-2">
+                            <Card key={user} className=" Card p-0 container col-6 col-center my-2" >
+                                <div className="p-2">
                                     <div className="d-flex ">
-                                        <img className="border border-success rounded-circle p-1" style={{ width: 100, height: 100 }} src={user[1].avatarURL} />
+                                        <img className="border border-success rounded-circle p-1" style={{ width: 100, height: 100 }} alt="avatar" src={user[1].avatarURL} />
                                         <div className="px-3 border-end"> <span className="visually-hidden">ssssssss</span></div>
                                         <div className="w-75 border-end  px-3">
                                             <div className="fw-bold bgLightColor">{user[1].name}</div>
@@ -92,7 +90,7 @@ class LeaderBoard extends Component {
                                             </div>
                                         </div>
                                     </div>
-                                </CardText>
+                                </div>
                             </Card>
                         )
                     })}
