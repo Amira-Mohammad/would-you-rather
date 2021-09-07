@@ -17,9 +17,18 @@ export default function questions(state = {}, action) {
             }
 
         case SAVE_Q_ANSWER:
+            const votes = state[action.qid][action.answer].votes
+            console.log('statex', state);
+
             return {
                 ...state,
-                ...action.answer
+                [action.qid]: {
+                    ...state[action.qid],
+                    [action.answer]: {
+                        ...state[action.qid][action.answer],
+                        votes: votes.concat([action.authedUser])
+                    }
+                }
             }
 
         default:

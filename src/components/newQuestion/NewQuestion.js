@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Card, CardTitle } from 'reactstrap';
 import { connect } from 'react-redux';
-import { handleAddQuestion } from '../../Actions/Questions'
+import { handleAddQuestion } from '../../Actions'
 import Navbar from '../navBar/NavBar';
 import './NewQuestion.css'
 

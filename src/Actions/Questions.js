@@ -1,4 +1,3 @@
-import { saveQuestion, answerQuestion } from '../utils/api'
 export const RECEIVE_QUESTION = 'RECEIVE_QUESTION';
 export const ADD_QUESTION = 'ADD_QUESTION';
 export const SAVE_Q_ANSWER = 'SAVE_Q_ANSWER';
@@ -12,7 +11,7 @@ export function receiveQuestion(questions) {
 
 }
 
-function addQuestion(question) {
+export function addQuestion(question) {
 
     return {
         type: ADD_QUESTION,
@@ -21,56 +20,15 @@ function addQuestion(question) {
 
 }
 
-function saveQuestionAnswer(payload) {
+export function saveQuestionAnswer(authedUser, qid, answer) {
 
     return {
         type: SAVE_Q_ANSWER,
-        payload
+        authedUser,
+        qid,
+        answer
     }
 
 }
 
 
-export function handleAnswerQuestion(authedUser, qid, answer) {
-    return (dispatch) => {
-
-
-        return answerQuestion(
-            {
-                authedUser,
-                qid,
-                answer,
-            }
-
-        ).then(() => {
-            dispatch(saveQuestionAnswer({ authedUser, qid, answer }))
-        })
-
-    }
-
-}
-
-
-
-
-
-export function handleAddQuestion(optionOne, optionTwo, author) {
-    return (dispatch, getState) => {
-        return saveQuestion(
-            {
-                optionOneText: optionOne,
-                optionTwoText: optionTwo,
-                author,
-            }
-            //     {
-            //     optionOne,
-            //     optionTwo,
-            //     author
-            // }
-        ).then((question) => {
-            dispatch(addQuestion(question))
-        })
-
-    }
-
-}

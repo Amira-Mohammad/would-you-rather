@@ -20,7 +20,7 @@ const AnsweredQuestions = (props) => {
                                 <div>{props.Q.optionTwo.text}</div>
                             </div>
                             <Link className="btn px-5"
-                                to={{ pathname: "/questionPoll", state: { Q_forPoll: props.Q } }}
+                                to={{ pathname: "/questionDetails/" + props.Q.id, state: { questionProps: props.Q } }}
                             //to="/questionPoll"
                             >
                                 View Poll

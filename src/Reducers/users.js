@@ -1,4 +1,4 @@
-import { RECEIVE_USERS, SET_LOGIN_USER } from '../Actions/Users';
+import { RECEIVE_USERS, SET_LOGIN_USER, SAVE_USER_ANSWER } from '../Actions/Users';
 
 export default function users(state = {}, action) {
 
@@ -15,6 +15,37 @@ export default function users(state = {}, action) {
                 ...state,
                 loginUser: action.loginUser
             }
+
+        case SAVE_USER_ANSWER:
+            debugger
+            console.log('actionx', action);
+
+            console.log('statestatex', state.users[action.user]);
+
+            return {
+                ...state,
+                users: {
+                    ...state.users,
+                    [action.user]: {
+                        ...state[action.user],
+                        answers: {
+                            ...state.users[action.user].answers,
+                            [action.qid]: action.answer
+                        }
+                    }
+                }
+            }
+
+        // return {
+        //     ...state,
+        //     [action.user]: {
+        //         ...state[action.user],
+        //         answers: {
+        //             ...state.users[action.user].answers,
+        //             [action.qid]: action.answer
+        //         }
+        //     }
+        // }
         default:
             return state
     }

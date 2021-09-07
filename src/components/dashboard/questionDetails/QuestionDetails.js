@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import { Card, CardTitle, CardText } from 'reactstrap';
+import { Card, CardTitle } from 'reactstrap';
 import { Link } from "react-router-dom";
 import NavBar from '../../navBar/NavBar';
 import './questionDetails.scss'
 import { connect } from 'react-redux';
-import { handleAnswerQuestion } from '../../../Actions/Questions'
+import { handleAnswerQuestion } from '../../../Actions'
 
 
 class QuestionDetails extends Component {
@@ -33,7 +33,7 @@ class QuestionDetails extends Component {
             e.preventDefault()
             const { dispatch } = this.props
 
-            // dispatch(handleAnswerQuestion(this.props.users.loginUser, questionProps_Data.id, this.state.exampleRadios))
+            dispatch(handleAnswerQuestion(this.props.users.loginUser, questionProps_Data.id, this.state.exampleRadios))
             //this.props.history.push('/questionPoll')
 
 
@@ -48,7 +48,7 @@ class QuestionDetails extends Component {
                         <CardTitle className="bg_colors_2 text-white fw-bold text-start p-2 ">
                             {/* {props.Q.author}  */}
                             {questionProps_Data.author} Asks </CardTitle>
-                        <CardText className="p-2">
+                        <div className="p-2">
                             <div className="d-flex">
                                 <div className="w-25 border-end border-success d-flex flex-column justify-content-center">{questionProps_Data.author}</div>
                                 <div className="w-75">
@@ -77,7 +77,7 @@ class QuestionDetails extends Component {
 
                                     {/* <button onClick={submitVote} className="btn px-5">Submit vote</button> */}
 
-                                    <button for="questionPoll" onClick={submitVote} className="btn px-5">
+                                    <button htmlFor="questionPoll" onClick={submitVote} className="btn px-5">
                                         <Link id="questionPoll" className="btn px-5"
                                             to={{
                                                 pathname: "/questionPoll"
@@ -92,7 +92,7 @@ class QuestionDetails extends Component {
                                 </div>
                             </div>
 
-                        </CardText>
+                        </div>
 
                     </Card>
                 </div>

@@ -20,41 +20,42 @@ const Dashboard = (props) => {
     const questionsForLoop = Object.entries(props.questions);
     const usersForLoop = Object.entries(props.users.users);
 
-    const questions_UnAnswered = [];
-    const questions_Answered = [];
+    // const questions_UnAnswered = [];
+    // const questions_Answered = [];
 
     // console.log('questions keys', questionsForLoop);
     // console.log('users keys', usersForLoop);
 
-    let currentLogin = {}
-    usersForLoop.map((userFormLoop) => {
+    // let currentLogin = {}
+    // usersForLoop.forEach((userFormLoop) => {
 
-        if (userFormLoop[0] === props.users.loginUser) {
-            currentLogin = userFormLoop
-        }
+    //     if (userFormLoop[0] === props.users.loginUser) {
+    //         currentLogin = userFormLoop
+    //     }
 
-    })
+    // })
 
     // console.log('currentLogin', Object.entries(currentLogin)[1][1].answers);
     // console.log('currentLogin', Object.entries(currentLogin)[1][1].avatarURL);
 
-    questionsForLoop.map((questionFormLoop) => {
-        if (Object.entries(currentLogin)[1][1].answers.hasOwnProperty(questionFormLoop)) {
+    // questionsForLoop.forEach((questionFormLoop) => {
+    //     debugger
+    //     if (currentLogin[1].answers.hasOwnProperty(questionFormLoop)) {
 
-            //     if (currentLogin[1].answers.includes(questionFormLoop)[0]) {
-            questions_Answered.push(questionFormLoop[1])
+    //         //     if (currentLogin[1].answers.includes(questionFormLoop)[0]) {
+    //         questions_Answered.push(questionFormLoop[1])
 
-            // console.log('y', questionFormLoop);
+    //         // console.log('y', questionFormLoop);
 
 
-        } else {
-            questions_UnAnswered.push(questionFormLoop[1])
-        }
+    //     } else {
+    //         questions_UnAnswered.push(questionFormLoop[1])
+    //     }
 
-    })
+    // })
 
-    console.log('questions_Answered', questions_Answered);
-    console.log('questions_UnAnswered', questions_UnAnswered);
+    // console.log('questions_Answered', questions_Answered);
+    // console.log('questions_UnAnswered', questions_UnAnswered);
 
 
 
@@ -78,9 +79,23 @@ const Dashboard = (props) => {
 
 
 
-    //const [question, setQuestion] = useState({});
+    const [currentLoginUser, setCurrentLoginUser] = useState([]);
+    const [unAnsweredQuestion, setUnAnsweredQuestion] = useState([]);
+    const [AnsweredQuestion, setAnsweredQuestion] = useState([]);
 
     useEffect(() => {
+        console.log('props.users_x', props.users);
+
+        let currentLogin = {}
+        Object.entries(props.users.users).forEach((userFormLoop) => {
+            if (userFormLoop[0] === props.users.loginUser) {
+                currentLogin = userFormLoop
+                return
+            }
+        }
+        )
+        setCurrentLoginUser(currentLogin)
+
         // props.handleInitialData()
         // if (!props.question) {
 
@@ -91,6 +106,34 @@ const Dashboard = (props) => {
 
 
     }, []);
+
+    useEffect(() => {
+        console.log('currentLoginUser_x', currentLoginUser);
+        const unAnswered_Question = [];
+        const answered_Question = [];
+        if (currentLoginUser.length !== 0 && currentLoginUser !== null) {
+            Object.entries(props.questions).forEach((questionFormLoop) => {
+                console.log('questionFormLoop_x', questionFormLoop);
+
+                if (currentLoginUser[1].answers.hasOwnProperty(questionFormLoop[0])) {
+                    answered_Question.push(questionFormLoop[1])
+
+                } else {
+                    unAnswered_Question.push(questionFormLoop[1])
+                }
+
+            }
+
+            )
+            console.log('unAnswered_Question', unAnswered_Question);
+            console.log('answered_Question', answered_Question);
+
+
+            setUnAnsweredQuestion(unAnswered_Question);
+            setAnsweredQuestion(answered_Question)
+        }
+
+    }, [props.questions, currentLoginUser])
 
 
 
@@ -133,12 +176,12 @@ const Dashboard = (props) => {
 
                             <Col sm="12">
 
-                                {questions_UnAnswered.sort((a, b) => b.timestamp - a.timestamp)
+                                {unAnsweredQuestion.sort((a, b) => b.timestamp - a.timestamp)
                                     .map((question_UnAnswered) => {
                                         return (
                                             <UnAnsweredQuestions
                                                 key={question_UnAnswered.id}
-                                                avatar={Object.entries(currentLogin)[1][1].avatarURL}
+                                                avatar={currentLoginUser[1].avatarURL}
                                                 Q={question_UnAnswered} />
 
                                         )
@@ -163,10 +206,10 @@ const Dashboard = (props) => {
                         <Row className="mt-4">
 
                             <Col sm="12">
-                                {questions_Answered.sort((a, b) => b.timestamp - a.timestamp).map((question_Answered) => {
+                                {AnsweredQuestion.sort((a, b) => b.timestamp - a.timestamp).map((question_Answered) => {
                                     return (<AnsweredQuestions
                                         key={question_Answered.id}
-                                        avatar={Object.entries(currentLogin)[1][1].avatarURL}
+                                        avatar={currentLoginUser[1].avatarURL}
                                         Q={question_Answered}
                                     />
 
