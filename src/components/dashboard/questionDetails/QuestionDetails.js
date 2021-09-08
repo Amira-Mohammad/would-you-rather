@@ -24,11 +24,7 @@ class QuestionDetails extends Component {
 
 
     render() {
-
-
         const questionProps_Data = this.props.location.state.questionProps
-        console.log('questionProps_Datassssssss', questionProps_Data);
-
         const submitVote = (e) => {
             e.preventDefault()
             const { dispatch } = this.props

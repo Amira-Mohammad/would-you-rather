@@ -27,25 +27,19 @@ const LeaderBoard = (props) => {
 
 
     }, [])
-    console.log('x___props', props.users.users);
-
-    console.log('usersData', usersData);
 
     return (
         <div>
             <NavBar />
             {
                 usersData.map((user) => {
-                    console.log('user________x', typeof user[1].questions);
-                    //  console.log('user________y', user[1]); 
-                    const answersCount = Object.keys(user[1].answers).length
-                    console.log('answersCount___x', answersCount);
 
+                    const answersCount = Object.keys(user[1].answers).length
                     const questionCount = Object.keys(user[1].questions).length
                     return (
 
 
-                        <Card className=" Card p-0 container col-6 col-center my-2" >
+                        <Card key={user[1].id} className=" Card p-0 container col-6 col-center my-2" >
                             <div className="p-2">
                                 <div className="d-flex ">
                                     <img className="border border-success rounded-circle p-1"
@@ -95,8 +89,6 @@ const LeaderBoard = (props) => {
 };
 
 function mapStateToProps({ users, questions }) {
-
-    console.log('users______x', users);
 
     return {
         users,

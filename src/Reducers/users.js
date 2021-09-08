@@ -17,11 +17,6 @@ export default function users(state = {}, action) {
             }
 
         case SAVE_USER_ANSWER:
-            debugger
-            console.log('actionx', action);
-
-            console.log('statestatex', state.users[action.user]);
-
             return {
                 ...state,
                 users: {

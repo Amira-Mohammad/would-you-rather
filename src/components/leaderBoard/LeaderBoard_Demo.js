@@ -36,10 +36,7 @@ class LeaderBoard extends Component {
     }
 
     render() {
-        console.log('xProps', this.props);
-
         // const renderedUsers = this.props.users.users
-
         //for (const property in renderedUsers) {
         // console.log('x', renderedUsers[property]["answers"]);
         //}

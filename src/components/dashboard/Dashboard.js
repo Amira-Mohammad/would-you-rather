@@ -17,8 +17,8 @@ const Dashboard = (props) => {
 
 
 
-    const questionsForLoop = Object.entries(props.questions);
-    const usersForLoop = Object.entries(props.users.users);
+    // const questionsForLoop = Object.entries(props.questions);
+    // const usersForLoop = Object.entries(props.users.users);
 
     // const questions_UnAnswered = [];
     // const questions_Answered = [];
@@ -84,8 +84,6 @@ const Dashboard = (props) => {
     const [AnsweredQuestion, setAnsweredQuestion] = useState([]);
 
     useEffect(() => {
-        console.log('props.users_x', props.users);
-
         let currentLogin = {}
         Object.entries(props.users.users).forEach((userFormLoop) => {
             if (userFormLoop[0] === props.users.loginUser) {
@@ -108,12 +106,10 @@ const Dashboard = (props) => {
     }, []);
 
     useEffect(() => {
-        console.log('currentLoginUser_x', currentLoginUser);
         const unAnswered_Question = [];
         const answered_Question = [];
         if (currentLoginUser.length !== 0 && currentLoginUser !== null) {
             Object.entries(props.questions).forEach((questionFormLoop) => {
-                console.log('questionFormLoop_x', questionFormLoop);
 
                 if (currentLoginUser[1].answers.hasOwnProperty(questionFormLoop[0])) {
                     answered_Question.push(questionFormLoop[1])
@@ -125,8 +121,7 @@ const Dashboard = (props) => {
             }
 
             )
-            console.log('unAnswered_Question', unAnswered_Question);
-            console.log('answered_Question', answered_Question);
+
 
 
             setUnAnsweredQuestion(unAnswered_Question);
@@ -237,7 +232,6 @@ const Dashboard = (props) => {
 };
 
 function mapStateToProps({ questions, users }) {
-    console.log('usersssssssssssss______x', users);
     return {
         questions,
         users
