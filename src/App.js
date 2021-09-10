@@ -43,7 +43,7 @@ function App(props) {
           <PrivateRoute exact path="/home" component={Home} />
           <PrivateRoute exact path="/newquestion" component={NewQuestion} />
           <PrivateRoute exact path="/leaderboard" component={LeaderBoard} />
-          <PrivateRoute exact path="/questionDetails/:id" component={QuestionDetails} />
+          <PrivateRoute exact path="/questions/:id" component={QuestionDetails} />
           <PrivateRoute exact path="/questionPoll" component={QuestionPoll} />
 
 

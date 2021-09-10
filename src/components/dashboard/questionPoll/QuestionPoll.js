@@ -7,8 +7,7 @@ import { connect } from 'react-redux';
 
 const QuestionPoll = (props) => {
     const questionProps_Data = props.location.state.questionProps_Data
-    console.log('questionProps_Dataaaaaaaaaass', props.location.state.questionProps_Data);
-    console.log('xrrrrrrrrr', props.users);
+
 
 
     const { author, optionOne, optionTwo } = questionProps_Data
@@ -16,7 +15,7 @@ const QuestionPoll = (props) => {
 
     const [currentLoginUser, setCurrentLoginUser] = useState([]);
     useEffect(() => {
-        console.log('props.users_x', props.users);
+
 
         let currentLogin = {}
         Object.entries(props.users.users).forEach((userFormLoop) => {
@@ -32,7 +31,6 @@ const QuestionPoll = (props) => {
 
     }, []);
 
-    console.log('currentLoginUser__________x', currentLoginUser);
     let answerMarkOp1 = questionProps_Data ? questionProps_Data.optionOne.votes.includes(props.users.loginUser) : null
     let answerMarkOp2 = questionProps_Data ? questionProps_Data.optionTwo.votes.includes(props.users.loginUser) : null
 

@@ -10,9 +10,7 @@ import './Dashboard.scss'
 
 const Dashboard = (props) => {
 
-    // console.log('questions', props.questions);
-    // console.log('users', props.users.users);
-    // console.log('loginUser', props.users.loginUser);
+
 
 
 
@@ -23,8 +21,7 @@ const Dashboard = (props) => {
     // const questions_UnAnswered = [];
     // const questions_Answered = [];
 
-    // console.log('questions keys', questionsForLoop);
-    // console.log('users keys', usersForLoop);
+
 
     // let currentLogin = {}
     // usersForLoop.forEach((userFormLoop) => {
@@ -35,18 +32,15 @@ const Dashboard = (props) => {
 
     // })
 
-    // console.log('currentLogin', Object.entries(currentLogin)[1][1].answers);
-    // console.log('currentLogin', Object.entries(currentLogin)[1][1].avatarURL);
+
 
     // questionsForLoop.forEach((questionFormLoop) => {
-    //     debugger
     //     if (currentLogin[1].answers.hasOwnProperty(questionFormLoop)) {
 
     //         //     if (currentLogin[1].answers.includes(questionFormLoop)[0]) {
     //         questions_Answered.push(questionFormLoop[1])
 
-    //         // console.log('y', questionFormLoop);
-
+    //        
 
     //     } else {
     //         questions_UnAnswered.push(questionFormLoop[1])
@@ -54,30 +48,12 @@ const Dashboard = (props) => {
 
     // })
 
-    // console.log('questions_Answered', questions_Answered);
-    // console.log('questions_UnAnswered', questions_UnAnswered);
-
-
-
-    // for (const key of Object.entries(props.questions)) {
-    //     console.log(`${key}`);
-    // }
-
-
-
     // function currentLoginUser(logInUser) {
     //     return logInUser.id === props.users.loginUser;
     // }
 
-    // console.log(Object.keys(props.users.users).find(currentLoginUser));
 
     // const result = Object.keys(props.users.users).find((logInUser) => logInUser.id === props.users.loginUser);
-
-    // console.log(result)
-
-
-
-
 
     const [currentLoginUser, setCurrentLoginUser] = useState([]);
     const [unAnsweredQuestion, setUnAnsweredQuestion] = useState([]);

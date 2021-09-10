@@ -7,12 +7,11 @@ import './LeaderBoard.css'
 
 const LeaderBoard = (props) => {
     const [usersData, setUsersData] = useState([]);
-    // console.log('xuuu___props', props.users.users);
-    // console.log('xxxxxxx', Object.entries(props.users.users));
+
     useEffect(() => {
         let user_data = []
         Object.entries(props.users.users).forEach((userDataItem) => {
-            //  console.log('userDataItem_x', userDataItem[1]);
+
 
             // if (userFormLoop[0] === props.users.loginUser) {
             user_data.push(userDataItem)

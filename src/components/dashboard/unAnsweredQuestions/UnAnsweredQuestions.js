@@ -3,7 +3,7 @@ import { Card, CardTitle } from 'reactstrap';
 import { Link } from "react-router-dom";
 import './UnAnsweredQuestions.css'
 const UnAnsweredQuestions = (props) => {
-    // console.log('props from UnAnsweredQuestions', props.usersData);
+
 
     return (
         <div>
@@ -30,7 +30,7 @@ const UnAnsweredQuestions = (props) => {
                             </div>
 
                             <Link className="btn px-5"
-                                to={{ pathname: "/questionDetails/" + props.Q.id, state: { questionProps: props.Q } }}
+                                to={{ pathname: "/questions/" + props.Q.id, state: { questionProps: props.Q } }}
                             //to={"/questionDetails/" + props.Q.id}
                             >View and Vote</Link>
 

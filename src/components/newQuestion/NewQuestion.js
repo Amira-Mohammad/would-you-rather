@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Card, CardTitle } from 'reactstrap';
+import { withRouter } from "react-router";
 import { connect } from 'react-redux';
 import { handleAddQuestion } from '../../Actions'
 import Navbar from '../navBar/NavBar';
@@ -24,7 +25,9 @@ class NewQuestion extends Component {
         }))
     }
     handleSubmitOption = (e) => {
+
         e.preventDefault()
+        const { history } = this.props;
         const { dispatch } = this.props
         const { FirstOption, SecondOption } = this.state
 
@@ -34,10 +37,12 @@ class NewQuestion extends Component {
             SecondOption: ''
         }))
 
+        history.push("/dashboard");
 
     }
 
     render() {
+
         return (
             <div className="container">
                 <Navbar />

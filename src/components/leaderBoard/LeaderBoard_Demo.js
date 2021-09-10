@@ -38,7 +38,7 @@ class LeaderBoard extends Component {
     render() {
         // const renderedUsers = this.props.users.users
         //for (const property in renderedUsers) {
-        // console.log('x', renderedUsers[property]["answers"]);
+        // 
         //}
 
         return (
@@ -49,12 +49,9 @@ class LeaderBoard extends Component {
 
                 {Object.entries(this.props.users).length > 0 &&
                     Object.entries(this.props.users.users).map((user) => {
-                        // console.log('xcccccccccccc', user[1].questions);
-                        // console.log('typeof user', typeof user);
-
                         const answersCount = Object.keys(user[1].answers).length
                         const questionCount = Object.keys(user[1].questions).length
-                        //console.log('answersCount', answersCount);
+
 
                         return (
 
