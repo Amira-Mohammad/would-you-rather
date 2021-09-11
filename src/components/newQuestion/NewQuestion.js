@@ -62,6 +62,7 @@ class NewQuestion extends Component {
                                     value={this.state.FirstOption}
                                     //onChange={(e) => handleChangeOption(e.target.value)}
                                     onChange={this.handleChangeOption}
+                                    required
                                 />
                                 <div className="my-2">OR</div>
                                 <input
@@ -72,6 +73,7 @@ class NewQuestion extends Component {
                                     value={this.state.SecondOption}
                                     //  onChange={(e) => handleChangeOption(e.target.value)}
                                     onChange={this.handleChangeOption}
+                                    required
                                 />
                                 <button type="submit" className="btn px-5 my-2">Submit</button>
 

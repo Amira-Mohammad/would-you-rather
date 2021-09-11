@@ -41,7 +41,7 @@ function App(props) {
           <Route exact path="/" component={Login} />
           {/* <Route path="/dashboard" component={Dashboard} /> */}
           <PrivateRoute exact path="/home" component={Home} />
-          <PrivateRoute exact path="/newquestion" component={NewQuestion} />
+          <PrivateRoute exact path="/add" component={NewQuestion} />
           <PrivateRoute exact path="/leaderboard" component={LeaderBoard} />
           <PrivateRoute exact path="/questions/:id" component={QuestionDetails} />
           <PrivateRoute exact path="/questionPoll" component={QuestionPoll} />

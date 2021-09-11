@@ -14,7 +14,7 @@ const NavBar = (props) => {
                 <div className="collapse navbar-collapse d-flex justify-content-between" id="navbarNavAltMarkup">
                     <div className="navbar-nav ">
 
-                        <Link className="nav-link active" to="/newquestion">New Question</Link>
+                        <Link className="nav-link active" to="/add">New Question</Link>
                         <Link className="nav-link " to="/leaderboard">leader Board</Link>
                         <Link className="nav-link " to="/">log Out</Link>
 
