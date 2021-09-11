@@ -18,6 +18,7 @@ export default function questions(state = {}, action) {
 
         case SAVE_Q_ANSWER:
             const votes = state[action.qid][action.answer].votes
+            console.log('from Qs', action.loginUser);
 
             return {
                 ...state,
@@ -25,7 +26,7 @@ export default function questions(state = {}, action) {
                     ...state[action.qid],
                     [action.answer]: {
                         ...state[action.qid][action.answer],
-                        votes: votes.concat([action.authedUser])
+                        votes: votes.push(action.loginUser)
                     }
                 }
             }

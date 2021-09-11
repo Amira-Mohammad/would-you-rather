@@ -20,13 +20,14 @@ export function addQuestion(question) {
 
 }
 
-export function saveQuestionAnswer(authedUser, qid, answer) {
+export function saveQuestionAnswer(authedUser, qid, answer, loginUser) {
 
     return {
         type: SAVE_Q_ANSWER,
         authedUser,
         qid,
-        answer
+        answer,
+        loginUser
     }
 
 }

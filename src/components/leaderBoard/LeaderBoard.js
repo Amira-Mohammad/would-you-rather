@@ -10,7 +10,11 @@ const LeaderBoard = (props) => {
 
     useEffect(() => {
         let user_data = []
+            ;
+
+        //console.log('props.users.users________x', props.users.users);
         Object.entries(props.users.users).forEach((userDataItem) => {
+
 
 
             // if (userFormLoop[0] === props.users.loginUser) {
@@ -20,6 +24,7 @@ const LeaderBoard = (props) => {
 
         }
         )
+        console.log('user_data________x', user_data)
         setUsersData(user_data)
         // setCurrentLoginUser(currentLogin)
 

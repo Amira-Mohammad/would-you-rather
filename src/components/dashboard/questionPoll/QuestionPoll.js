@@ -7,6 +7,8 @@ import { connect } from 'react-redux';
 
 const QuestionPoll = (props) => {
     const questionProps_Data = props.location.state.questionProps_Data
+    console.log('questionProps_Data_____x', questionProps_Data);
+
 
 
 
@@ -30,10 +32,12 @@ const QuestionPoll = (props) => {
 
 
     }, []);
+    console.log('x________questionProps_Data', questionProps_Data);
 
-    let answerMarkOp1 = questionProps_Data ? questionProps_Data.optionOne.votes.includes(props.users.loginUser) : null
-    let answerMarkOp2 = questionProps_Data ? questionProps_Data.optionTwo.votes.includes(props.users.loginUser) : null
-
+    let answerMarkOp1 = questionProps_Data ? questionProps_Data.optionOne.votes.includes(props.users.loginUser) : false
+    let answerMarkOp2 = questionProps_Data ? questionProps_Data.optionTwo.votes.includes(props.users.loginUser) : false
+    console.log('x1', answerMarkOp1);
+    console.log('x2', answerMarkOp2);
     return (
         <>
             <NavBar />
@@ -48,7 +52,7 @@ const QuestionPoll = (props) => {
                             <div className="w-75">
                                 <div className="fw-bold bgLightColor">Would You Rather</div>
                                 <div className="QuestionTitle my-2">
-                                    <div className="border p-2 rounded">
+                                    <div className="border p-2 rounded my-2">
                                         <div >
                                             {answerMarkOp1 ? (
                                                 <Badge className="bg-warning" pill variant="warning">
@@ -60,10 +64,10 @@ const QuestionPoll = (props) => {
                                         <ProgressBar now={optionOne.votes.length / (optionOne.votes.length + optionTwo.votes.length) * 100}
                                             label={`${optionOne.votes.length / (optionOne.votes.length + optionTwo.votes.length) * 100}%`} />
                                     </div>
-                                    <div>
+                                    <div className="border p-2 rounded">
                                         <div>
                                             {answerMarkOp2 ? (
-                                                <Badge pill variant="warning">
+                                                <Badge className="bg-warning" pill variant="warning">
                                                     Your Vote
                                                 </Badge>
                                             ) : ' '}

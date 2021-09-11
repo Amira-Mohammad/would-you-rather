@@ -17,12 +17,16 @@ export default function users(state = {}, action) {
             }
 
         case SAVE_USER_ANSWER:
+            console.log('from users ', action.user);
+            // console.log('x__________--', ...state.users[action.user]);
+
             return {
                 ...state,
                 users: {
                     ...state.users,
                     [action.user]: {
-                        ...state[action.user],
+
+                        ...state.users[action.user],
                         answers: {
                             ...state.users[action.user].answers,
                             [action.qid]: action.answer

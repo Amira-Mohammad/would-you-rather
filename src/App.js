@@ -45,12 +45,7 @@ function App(props) {
           <PrivateRoute exact path="/leaderboard" component={LeaderBoard} />
           <PrivateRoute exact path="/questions/:id" component={QuestionDetails} />
           <PrivateRoute exact path="/questionPoll" component={QuestionPoll} />
-
-
-          <PrivateRoute
-            path='/dashboard'
-            exact={true}
-            component={Dashboard}
+          <PrivateRoute exact path='/dashboard' component={Dashboard}
           // handleChildFunc={this.handleChildFunc}
           />
 

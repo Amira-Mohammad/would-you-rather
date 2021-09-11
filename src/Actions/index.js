@@ -16,16 +16,17 @@ export function handleInitialData() {
     }
 }
 
-export function handleAnswerQuestion(authedUser, qid, answer) {
+export function handleAnswerQuestion(authedUser, qid, answer, loginUser) {
     return (dispatch) => {
 
-        dispatch(saveQuestionAnswer(authedUser, qid, answer))
+        dispatch(saveQuestionAnswer(authedUser, qid, answer, loginUser))
         dispatch(saveUserAnswer(authedUser, qid, answer))
         return answerQuestion(
             {
                 authedUser,
                 qid,
-                answer,
+                answer
+
             }
 
         )
