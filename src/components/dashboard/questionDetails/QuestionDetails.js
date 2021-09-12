@@ -24,6 +24,16 @@ class QuestionDetails extends Component {
 
 
     render() {
+        if (!this.props.location.state) {
+            // return <Redirect to="/dashboard" />
+            return (
+                <div>
+                    <h1>404</h1>
+                    <p>The page not found</p>
+                </div>
+
+            )
+        }
         const questionProps_Data = this.props.location.state.questionProps
         const submitVote = (e) => {
             e.preventDefault()

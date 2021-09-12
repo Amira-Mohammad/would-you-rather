@@ -6,7 +6,6 @@ import { connect } from 'react-redux';
 import './LeaderBoard.css'
 
 const LeaderBoard = (props) => {
-    console.log('x_______props', props);
 
     const [usersData, setUsersData] = useState([]);
 
