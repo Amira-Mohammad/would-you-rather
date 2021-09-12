@@ -17,9 +17,6 @@ export default function users(state = {}, action) {
             }
 
         case SAVE_USER_ANSWER:
-            console.log('from users ', action.user);
-            // console.log('x__________--', ...state.users[action.user]);
-
             return {
                 ...state,
                 users: {

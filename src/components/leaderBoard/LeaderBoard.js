@@ -6,25 +6,20 @@ import { connect } from 'react-redux';
 import './LeaderBoard.css'
 
 const LeaderBoard = (props) => {
+    console.log('x_______props', props);
+
     const [usersData, setUsersData] = useState([]);
 
     useEffect(() => {
-        let user_data = []
-            ;
+        let user_data = [];
 
-        //console.log('props.users.users________x', props.users.users);
-        Object.entries(props.users.users).forEach((userDataItem) => {
-
-
-
+        Object.entries(props.sortedUsers).forEach((userDataItem) => {
             // if (userFormLoop[0] === props.users.loginUser) {
             user_data.push(userDataItem)
 
             // }
 
-        }
-        )
-        console.log('user_data________x', user_data)
+        })
         setUsersData(user_data)
         // setCurrentLoginUser(currentLogin)
 
@@ -40,9 +35,8 @@ const LeaderBoard = (props) => {
 
                     const answersCount = Object.keys(user[1].answers).length
                     const questionCount = Object.keys(user[1].questions).length
+
                     return (
-
-
                         <Card key={user[1].id} className=" Card p-0 container col-6 col-center my-2" >
                             <div className="p-2">
                                 <div className="d-flex ">
@@ -93,11 +87,16 @@ const LeaderBoard = (props) => {
 };
 
 function mapStateToProps({ users, questions }) {
+    const sortedUsers = (Object.values(users.users)).sort((a, b) => {
+        const x1 = (Object.keys(a.answers)).length + a.questions.length
+        const x2 = (Object.keys(b.answers)).length + b.questions.length
+        return x2 - x1
+    })
 
     return {
         users,
-        questions
-        //.sort((a, b) => tweets[b].timestamp - tweets[a].timestamp)
+        questions,
+        sortedUsers
     }
 }
 

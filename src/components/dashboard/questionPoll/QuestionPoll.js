@@ -7,7 +7,6 @@ import { connect } from 'react-redux';
 
 const QuestionPoll = (props) => {
     const questionProps_Data = props.location.state.questionProps_Data
-    console.log('questionProps_Data_____x', questionProps_Data);
 
 
 
@@ -32,12 +31,10 @@ const QuestionPoll = (props) => {
 
 
     }, []);
-    console.log('x________questionProps_Data', questionProps_Data);
 
     let answerMarkOp1 = questionProps_Data ? questionProps_Data.optionOne.votes.includes(props.users.loginUser) : false
     let answerMarkOp2 = questionProps_Data ? questionProps_Data.optionTwo.votes.includes(props.users.loginUser) : false
-    console.log('x1', answerMarkOp1);
-    console.log('x2', answerMarkOp2);
+
     return (
         <>
             <NavBar />

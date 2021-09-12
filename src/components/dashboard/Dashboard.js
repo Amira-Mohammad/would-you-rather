@@ -208,6 +208,7 @@ const Dashboard = (props) => {
 };
 
 function mapStateToProps({ questions, users }) {
+
     return {
         questions,
         users

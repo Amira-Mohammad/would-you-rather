@@ -28,8 +28,6 @@ class QuestionDetails extends Component {
         const submitVote = (e) => {
             e.preventDefault()
             const { dispatch } = this.props
-            //console.log('xLogin', this.props.users.loginUser);
-
             dispatch(handleAnswerQuestion(this.props.users.loginUser, questionProps_Data.id, this.state.exampleRadios, this.props.users.loginUser))
             //this.props.history.push('/questionPoll')
 
